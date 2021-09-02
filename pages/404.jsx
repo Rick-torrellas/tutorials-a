@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Layout from './../react-components/Layout/Layout';
+import Layout from '../components/Layout';
 
 export default function custom404() {
     return (

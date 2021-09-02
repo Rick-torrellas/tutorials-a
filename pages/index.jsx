@@ -1,4 +1,4 @@
-import Layout from "./../react-components/Layaout/Layout";
+import Layout from "./../components/Layout";
 import axios from "axios";
 import { _Sample } from "./../react-components/icons/react-bootstrap";
 
