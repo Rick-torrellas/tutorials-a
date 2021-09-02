@@ -1,0 +1,3 @@
+[submodule "react-components"]
+	path = react-components
+	url = https://github.com/Rick-torrellas/react-components
