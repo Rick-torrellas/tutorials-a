@@ -3,11 +3,13 @@ import tutorialsRaw from "../../../../data/tutorials";
 
 export default function handler(req, res) {
     const { content } = req.query;
+    const query = content.toUpperCase();
 /* Para buscar todos los tutoriales relacionados con un contenido dado */
 let tutorials = [];
-const value = tutos.content_name;
-tutorialsRaw.map((tutos) => {
-  if (value == content) {
+tutorialsRaw.map((tutos,i) => {
+  const value = tutos.content_name.toUpperCase();
+
+  if (value == query) {
       tutorials.push(tutos);
   }
 }) 

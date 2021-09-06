@@ -25,7 +25,7 @@ export default function Navegacion() {
         </Link>
       </Nav.Item>
       <Nav.Item>
-        <Link href="/tutoriales">
+        <Link href="/tutorials">
           <a className="nav-link">Tutoriales</a>
         </Link>
       </Nav.Item>

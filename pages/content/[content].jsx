@@ -9,7 +9,7 @@ import Layout from "../../components/Layout";
 import Grid_ from "../../react-components/Grid/Grid";
 import config from "./../../config";
 /* 
-PARA BUSCAR UN SOLO CONTENIDO */
+PARA BUSCAR CONTENIDO PUEDEN SER VARIOS */
 
 export default function Content({ data }) {
     const router = useRouter();

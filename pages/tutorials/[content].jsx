@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import { useRouter } from 'next/router'
 
 import Layout from "../../components/Layout";
-import Grid_ from "../../react-components/Grid/Grid";
+import Grid_ from "./../../react-components/Grid/Grid";
 import config from "./../../config";
 /* 
 PARA BUSCAR LOS TUTORIALES DE UN CONTENIDO */
@@ -15,9 +15,10 @@ export default function Content({ data }) {
     const router = useRouter();
     const { content } = router.query;
     process.env.NEXT_PUBLIC_CONTENT = content;
+    console.log(process.env.NEXT_PUBLIC_CONTENT);
     return (
       <Layout>
-          <p>EMPANADA</p>
+          <p>EMPANADASx</p>
         <Grid_ 
         md={6}
         >
@@ -26,7 +27,7 @@ export default function Content({ data }) {
               <Contenido 
               key={i}
               title={Data.title}
-              icon={Data.icon}
+              content={content}
               />
             )
           })}
@@ -35,14 +36,14 @@ export default function Content({ data }) {
     );
   }
   
-  function Contenido({ title , icon }) {
-  const href = `${config.host}/content/${title}`;
+  function Contenido({ title , content }) {
+  const href = `${config.host}/tutorials/find/${title}?content_name=${content}`;
+  console.log(href);
     return (
       <Col className="mb-5">
         <Link href={href}>
           <a className="no-link">
             <Card >
-              <Card.Img variant="top" src={icon} />
               <Card.Body className="text-center">
                 <Card.Title>{title}</Card.Title>
               </Card.Body>
@@ -54,9 +55,11 @@ export default function Content({ data }) {
   }
 
 export async function getServerSideProps() {
-  const content = process.env.NEXT_PUBLIC_CONTENT
-  console.log(content)
-    const res = await axios.get(`${config.host}/api/data/tutorials/${content}`);
+  const content = process.env.NEXT_PUBLIC_CONTENT;
+  const query = `${config.host}/api/data/tutorials/${content}`;
+  console.log(query)
+    const res = await axios.get(query);
+    console.log(res.data)
     return {
       props: { 
         data: res.data,
